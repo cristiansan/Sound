@@ -23,6 +23,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Button button5=(Button)findViewById(R.id.button5);
         Button button6=(Button)findViewById(R.id.button6);
         Button button7=(Button)findViewById(R.id.button7);
+        Button button8=(Button)findViewById(R.id.button8);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -31,6 +32,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         button5.setOnClickListener(this);
         button6.setOnClickListener(this);
         button7.setOnClickListener(this);
+        button8.setOnClickListener(this);
     }
 
     public void onClick(View v) {
@@ -57,18 +59,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.button7:
                 resId = R.raw.boton7;
                 break;
+            case R.id.button8:
+                resId = R.raw.boton8;
+                break;
             default:
                 resId = R.raw.boton1;
                 break;
         }
-        if (mp != null) {
+        /*if (mp != null) {
             mp.release();
-        }
+        }*/
+
         mp = MediaPlayer.create(this, resId);
         mp.start();
-    }
 
-    @Override
+        }
+
+
+        @Override
     protected void onDestroy() {
         if(null!=mp){
             mp.release();
